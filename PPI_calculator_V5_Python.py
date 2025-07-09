@@ -7,16 +7,16 @@ def log_error(message):
     with open(log_path, 'a') as log_file:
         log_file.write(message + '\n')
 
-# Der Pfad zur Excel-Datei im selben Verzeichnis wie die .exe
+# check path .xlsx same as .exe
 file_path = path.join(getcwd(), 'data_PPI.xlsx')
 
-# Überprüfen, ob die Excel-Datei vorhanden ist
+# check .xsls present
 if not path.isfile(file_path):
     log_error("Error: Can not find data_PPI.xlsx. Please put it into the same folder as PI_calculator")
     print("Error: Can not find data_PPI.xlsx")
     exit(1)
 
-# Laden der Excel-Datei
+# load .xlsx
 try:
     data = read_excel(file_path)
 except Exception as e:
@@ -24,7 +24,7 @@ except Exception as e:
     print(f"Error: Can not load data: {e}")
     exit(1)
 
-# Überprüfen der Spaltennamen
+# check colnames
 expected_columns = [
     'case', 'preauricular_sulcus', 'dorsal_pubic_pitting', 'extended_pubic_tubercle',
     'exostoses_sacroiliac_joint_margin', 'exostoses_ventral_pubic_surface',
@@ -43,7 +43,7 @@ PPI_list = []
 weighted_PPI_list = []
 pelvic_features_no_list = []
 
-# Initialisierung & no of pelvic features
+# PPI calculations
 count = 0
 number = 0
 present = 0
@@ -176,7 +176,7 @@ for x in range(len(data['case'])):
         weighted_PPI_value = None
     weighted_PPI_list.append(weighted_PPI_value)
 
-# Speichern der Ergebnisse
+# save results
 data['pelvic_features_no'] = pelvic_features_no_list
 data['PPI'] = PPI_list
 data['weighted_PPI'] = weighted_PPI_list
