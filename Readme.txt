@@ -7,10 +7,11 @@ Record the expression of pelvic features as described in the publication Waltenb
 
 Put the Files "data_PPI.xlsx" and the PPI_calculatorV1.exe in the same folder at your computer
 Make sure that the data_PPI-xlsx is closed as the software will not be able to include the calculated PPIs into the file
-Run the PPI_calculatorV3.exe
+Run the PPI_calculatorV1.exe
 
 The software will automatically calculate the PPIs and will include them into the columns "PPI" and "PPI_weighted" in the Excel spreadsheet data_PPI.
 
 
 In case of an error occuring during the calculation, an error.txt file containing the error description and a solution to solve it will be produced and saved in the same folder.
+
 
